@@ -57,24 +57,6 @@ layout = dict(
     )
 )
 
-a = {
-    "height": 850,
-    "width": 750,
-    "title": "Hover point in the map to observe street condition",
-    "hovermode": "closest",
-    "mapbox": {
-        "accesstoken": mapbox_access_token,
-        "bearing": 0,
-        "center": {
-            "lat": 43.052,
-            "lon": -76.155
-        },
-        "pitch": 0,
-        "zoom": 11,
-        "style": "dark"
-    }
-}
-
 # Components style
 def color_scale(map_data):
     color = []
@@ -108,6 +90,7 @@ def gen_map(map_data):
         "layout": layout
     }
 
+# Creating layouts for image and datatable
 layout_pic = copy.deepcopy(layout)
 layout_pic['height'] = 300
 layout_pic['margin-top'] = '10'
@@ -187,6 +170,7 @@ app.layout = html.Div([
     )
 ], className='ten columns offset-by-one')
 
+# Callbacks and functions
 def dfRowFromHover( hoverData ):
     ''' Returns row for hover point as a Pandas Series '''
     if hoverData is not None:
