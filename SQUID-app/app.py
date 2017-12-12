@@ -18,7 +18,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 # API keys and datasets
-mapbox_access_token = 'pk.eyJ1IjoiYW15b3NoaW5vIiwiYSI6ImNqOXA3dGF2bDJhMjMyd2xnNTJqdXFxc2sifQ.9SoIXAYOZ8qfTiHaw6rWmg'
+mapbox_access_token = 'YOURKEY'
 map_data = pd.read_csv('SQUID-SYRACUSE-MASTER - FINAL-APR29-SPEEDgt5.csv - SQUID-SYRACUSE-MASTER - FINAL-APR29-SPEEDgt5.csv')
 map_data['Timestamp'] = map_data['Timestamp'].apply(lambda x : datetime.datetime.fromtimestamp(int(x)).strftime('%Y-%m-%d'))
 map_data.columns = ['Date', 'Latitude', 'Longitude', 'Speed', 'X', 'Y', 'Z', 'Ride_Quality', 'Image_Name',
@@ -160,7 +160,7 @@ app.layout = html.Div([
                         row_selectable=True,
                         filterable=False,
                         sortable=True,
-                        selected_row_indices=[0, 1, 2],
+                        selected_row_indices=[0],
                         id='datatable'),
                 ],
                 style=layout_right,
